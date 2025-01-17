@@ -9,6 +9,7 @@ import TaskItem from "@tiptap/extension-task-item";
 import TaskList from "@tiptap/extension-task-list";
 import Table from "@tiptap/extension-table";
 import Link from "@tiptap/extension-link";
+import TextAlign from "@tiptap/extension-text-align";
 import { Color } from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
 import Underline from "@tiptap/extension-underline";
@@ -57,6 +58,9 @@ export const Editor = () => {
       StarterKit,
       FontFamily,
       TextStyle,
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
+      }),
       Color,
       Highlight.configure({
         multicolor: true,
