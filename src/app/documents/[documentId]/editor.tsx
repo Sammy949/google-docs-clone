@@ -8,6 +8,8 @@ import FontFamily from "@tiptap/extension-font-family";
 import TaskItem from "@tiptap/extension-task-item";
 import TaskList from "@tiptap/extension-task-list";
 import Table from "@tiptap/extension-table";
+import { Color } from "@tiptap/extension-color";
+import Highlight from "@tiptap/extension-highlight";
 import Underline from "@tiptap/extension-underline";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
@@ -54,6 +56,10 @@ export const Editor = () => {
       StarterKit,
       FontFamily,
       TextStyle,
+      Color,
+      Highlight.configure({
+        multicolor: true,
+      }),
       Underline,
       TaskItem.configure({
         nested: true,
