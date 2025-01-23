@@ -9,7 +9,7 @@ const inter = Inter({
 import { ConvexClientProvider } from "@/components/convex-client-provider";
 
 export const metadata: Metadata = {
-  title: "Docness",
+  title: "DocsEdit",
   description: "Your one time stop for web documents",
 };
 
