@@ -7,6 +7,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 import { ConvexClientProvider } from "@/components/convex-client-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "DocsEdit",
@@ -22,7 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NuqsAdapter>
-          <ConvexClientProvider>{children}</ConvexClientProvider>
+          <ConvexClientProvider>
+            <Toaster richColors/>
+            {children}
+          </ConvexClientProvider>
         </NuqsAdapter>
       </body>
     </html>
