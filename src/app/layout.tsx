@@ -9,6 +9,10 @@ const inter = Inter({
 import { ConvexClientProvider } from "@/components/convex-client-provider";
 import { Toaster } from "@/components/ui/sonner";
 
+import "@liveblocks/react-ui/styles.css";
+import "@liveblocks/react-tiptap/styles.css";
+import "./globals.css";
+
 export const metadata: Metadata = {
   title: "DocsEdit",
   description: "Your one time stop for web documents",
@@ -24,7 +28,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <NuqsAdapter>
           <ConvexClientProvider>
-            <Toaster richColors/>
+            <Toaster richColors />
             {children}
           </ConvexClientProvider>
         </NuqsAdapter>
