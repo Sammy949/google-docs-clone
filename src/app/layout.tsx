@@ -16,6 +16,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "DocsEdit",
   description: "Your one time stop for web documents",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
