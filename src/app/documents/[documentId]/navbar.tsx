@@ -40,8 +40,13 @@ import { useEditorStore } from "@/store/use-editor-store";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Avatars } from "./avatars";
 import { Inbox } from "./inbox";
+import { Doc } from "../../../../convex/_generated/dataModel";
 
-const Navbar = () => {
+interface NavbarProps {
+  data: Doc<"documents">;
+}
+
+const Navbar = ({ data }: NavbarProps) => {
   const { editor } = useEditorStore();
 
   const insertTable = ({ rows, cols }: { rows: number; cols: number }) => {
@@ -67,7 +72,7 @@ const Navbar = () => {
     const blob = new Blob([content], {
       type: "text/html",
     });
-    handleDownload(blob, "document.html"); // TODO: use document name
+    handleDownload(blob, `${data.title}.html`); // TODO: use document name
   };
 
   const handleSaveText = () => {
@@ -77,7 +82,7 @@ const Navbar = () => {
     const blob = new Blob([content], {
       type: "text/plain",
     });
-    handleDownload(blob, "document.txt"); // TODO: use document name
+    handleDownload(blob, `${data.title}.txt`); // TODO: use document name
   };
 
   const handleSaveJSON = () => {
@@ -87,7 +92,7 @@ const Navbar = () => {
     const blob = new Blob([JSON.stringify(content)], {
       type: "application/json",
     });
-    handleDownload(blob, "document.json"); // TODO: use document name
+    handleDownload(blob, `${data.title}.json`); // TODO: use document name
   };
 
   return (
@@ -98,7 +103,7 @@ const Navbar = () => {
         </Link>
 
         <div className="flex flex-col">
-          <DocumentInput />
+          <DocumentInput title={data.title} id={data._id} />
 
           <div className="flex">
             <Menubar className="border-none bg-transparent shadow-none h-auto p-0">
